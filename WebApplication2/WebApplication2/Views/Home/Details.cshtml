@@ -1,0 +1,27 @@
+﻿@model WebApplication2.Models.Good
+
+@{
+    ViewData["Title"] = "Товар";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+    <div class="media">
+        <img src="@Url.Content(Model.Path)" class="mr-3" alt="Нет изображения" style="height: 300px">
+        <div class="media-body">
+            <h5 class="mt-0">@Model.Name</h5>
+           You must by this if you don't want. It is real cool
+        </div>
+    </div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>

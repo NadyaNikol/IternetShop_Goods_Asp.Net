@@ -1,0 +1,89 @@
+﻿@model WebApplication2.Models.GoodViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+<h4>Good</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div class="media">
+                <input type="hidden" asp-for="@Model.Good.Id" />
+                <input type="hidden" asp-for="@Model.Good.FileName" />
+                <input type="hidden" asp-for="@Model.Good.Path" />
+                <img src="@Url.Content(Model.Good.Path)" class="mr-3" alt="Нет изображения" style="height: 300px">
+
+                <div class="form-group">
+                    <input type="file" name="UploadedFile" value="Выбрать" />
+                </div>
+
+                <div class="media-body">
+                    <label asp-for="@Model.Good.Name" class="control-label"></label>
+                    <input asp-for="@Model.Good.Name" class="form-control" />
+                    <label asp-for="@Model.Good.Price" class="control-label"></label>
+                    <input asp-for="@Model.Good.Price" class="form-control" />
+                </div>
+            </div>
+
+            @*<div class="col-md-4">
+                <form asp-action="Edit" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Good.Id" class="control-label"></label>
+                        <input asp-for="@Model.Good.Id" class="form-control" />
+                        <span asp-validation-for="@Model.Good.Id" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Good.Name" class="control-label"></label>
+                        <input asp-for="@Model.Good.Name" class="form-control" />
+                        <span asp-validation-for="@Model.Good.Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Good.Price" class="control-label"></label>
+                        <input asp-for="@Model.Good.Price" class="form-control" />
+                        <span asp-validation-for="@Model.Good.Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Good.FileName" class="control-label"></label>
+                        <input asp-for="@Model.Good.FileName" class="form-control" />
+                        <span asp-validation-for="@Model.Good.FileName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Good.Path" class="control-label"></label>
+                        <input asp-for="@Model.Good.Path" class="form-control" />
+                        <span asp-validation-for="@Model.Good.Path" class="text-danger"></span>
+                    </div>*@
+
+            @*<div class="form-group">
+                    <input type="file" name="UploadedFile" value="Выбрать" />
+                </div>*@
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿@model WebApplication2.Models.Good
+
+@{
+    ViewData["Title"] = "Удаление товара";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+
+    <hr />
+    <div class="media">
+        <img src="@Url.Content(Model.Path)" class="mr-3" alt="Нет изображения" style="height: 300px">
+        <div class="media-body">
+            <h5 class="mt-0">@Model.Name</h5>
+            You must by this if you don't want. It is real cool
+        </div>
+    </div>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
+</body>
+</html>
